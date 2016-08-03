@@ -1,6 +1,23 @@
 $( document ).ready(function() {
   var thermostat = new Thermostat();
 
+  displayWeather('London');
+
+  $('#select-city').submit(function(event) {
+    event.preventDefault();
+    var city = $('#current-city').val();
+    displayWeather(city);
+  })
+
+  function displayWeather(city) {
+   var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+   var token = config.appid;
+   var units = '&units=metric';
+   $.get(url + token + units, function(data) {
+     $('#current-temperature').text(data.main.temp);
+   })
+ }
+
   updateTemperature();
   $( "#temperature-up" ).click(function() {
     thermostat.up();
@@ -25,11 +42,8 @@ $( document ).ready(function() {
   function updateTemperature() {
     $( "#temperature" ).text(function() {
       return thermostat.getCurrentTemperature();
-
     });
-
     $('#temperature').attr('class', thermostat.colour());
-
   }
 
 
@@ -38,5 +52,7 @@ $( document ).ready(function() {
       return thermostat.getPowerSavingMode();
     });
   }
+
+
 
 });
