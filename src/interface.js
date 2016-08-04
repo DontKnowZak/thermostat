@@ -10,13 +10,13 @@ $( document ).ready(function() {
   })
 
   function displayWeather(city) {
-   var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
-   var token = config.appid;
-   var units = '&units=metric';
-   $.get(url + token + units, function(data) {
-     $('#current-temperature').text(data.main.temp);
-   })
- }
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+    var token = config.appid;
+    var units = '&units=metric';
+    $.get(url + token + units, function(data) {
+      $('#current-temperature').text(data.main.temp);
+    })
+  }
 
   updateTemperature();
   $( "#temperature-up" ).click(function() {
