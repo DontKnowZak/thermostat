@@ -19,6 +19,7 @@ $( document ).ready(function() {
   }
 
   updateTemperature();
+  updatePowerSaving();
   $( "#temperature-up" ).click(function() {
     thermostat.up();
     updateTemperature();
@@ -43,7 +44,8 @@ $( document ).ready(function() {
     $( "#temperature" ).text(function() {
       return thermostat.getCurrentTemperature();
     });
-    $('#temperature').attr('class', thermostat.colour());
+    $('body').attr('class', thermostat.colour());
+    $( '#temperature-display' ).css({'background-image': thermostat.temperatureGaugeFill()});
   }
 
 
@@ -51,6 +53,7 @@ $( document ).ready(function() {
     $( "#power-saving-status" ).text(function() {
       return thermostat.getPowerSavingMode();
     });
+    $( "#power-saving-status" ).css({'color': thermostat.getPowerSavingModeColour()});
   }
 
 

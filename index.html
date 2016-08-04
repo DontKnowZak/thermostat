@@ -5,30 +5,47 @@
     <title>Thermostat</title>
 
     <link rel="stylesheet" href="stylesheets/main.css">
-  </head>
-
-  <body>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <script src="src/jquery-3.1.0.js"></script>
     <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
     <script src="src/config.js"></script>
-    <section>
-      <h1>Current temperature: <span id="current-temperature">20</span></h1>
-      <form id="select-city">
-        <input id="current-city" type="text" placeholder="Enter a city"></input>
-        <input type="submit"></input>
-      </form>
-    </section>
-    <section>
-      <h1 id='temperature'></h1>
-      <p>
-        <button id='temperature-up'>+</button>
-        <button id='temperature-down'>-</button>
-        <button id='temperature-reset'>reset</button>
-        power saving mode is <span id='power-saving-status'>on</span>
-        <button id='powersaving-on'>PSM on</button>
-        <button id='powersaving-off'>PSM off</button>
-      </p>
-    </section>
+
+  </head>
+
+  <body>
+    <div id='main'>
+      <section>
+        <div id='weather-display'>
+          <div id='city-actual'>
+            <h1 id='outside-temperature'>Current temperature: <span id="current-temperature">20</span></h1>
+            <form id="select-city">
+              <input id="current-city" type="text" placeholder="Enter a city"></input>
+              <input type="submit" class="submit-btn"></input>
+            </form>
+          </div>
+        </div>
+      </section>
+      <div></div>
+      <section>
+        <div id='temperature-display'>
+          <h1 id='temperature' class='relative1'>25</h1>
+        </div>
+        <div class='control-panel'>
+          <p>
+            <div class='control-temperature relative2'>
+              <button id='temperature-up'>+</button>
+              <button id='temperature-reset'>reset</button>
+              <button id='temperature-down'>-</button>
+            </div>
+            <div class='control-powersave'>
+              Power saving mode is <span id='power-saving-status'>on</span>
+              <button id='powersaving-on'>PSM on</button>
+              <button id='powersaving-off'>PSM off</button>
+            </div>
+          </p>
+        </div>
+      </section>
+    </div>
   </body>
 </html>

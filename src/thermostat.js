@@ -63,3 +63,21 @@ Thermostat.prototype.getPowerSavingMode = function() {
     return 'off'
   }
 }
+
+Thermostat.prototype.getPowerSavingModeColour = function() {
+  if (this.isPowerSavingModeOn()) {
+    return 'green'
+  } else {
+    return 'red'
+  }
+}
+
+Thermostat.prototype.temperatureGaugeFill = function() {
+  var fillAmount;
+  fillAmount = 100 - (((this.temperature - 10) * 3.6) + 10);
+  var bgGradient = 'linear-gradient(to bottom, #b3ecff, #b3ecff ' + fillAmount + '%, #ff6b6b ' + fillAmount + '%, #ff6b6b)';
+  return bgGradient
+}
+
+var thermostat = new Thermostat
+thermostat.temperatureGaugeFill();
